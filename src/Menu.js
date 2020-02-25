@@ -1,20 +1,19 @@
 import React from "react"
-import Toggler from "./Toggler"
+import useToggler from "./useToggler"
 
 function Menu(props) {
+  const [show, toggle] = useToggler(true)
   return (
-    <Toggler defaultOnValue={ true } render={({on, toggle}) => (
-      <div>
-        <button onClick={ toggle }>{ on ? "Hide" : "Show" } Menu </button>
-        <nav style={{ display: on ? "block" : "none" }}>
-            <h6>Signed in as Coder123</h6>
-            <p>Your Profile</p>
-            <p>Your Repositories</p>
-            <p>Your Stars</p>
-            <p>Your Gists</p>
-        </nav>
-      </div>
-    )} />
+    <div>
+      <button onClick={ toggle }>{ show ? "Hide" : "Show" } Menu </button>
+      <nav style={{ display: show ? "block" : "none" }}>
+          <h6>Signed in as Coder123</h6>
+          <p>Your Profile</p>
+          <p>Your Repositories</p>
+          <p>Your Stars</p>
+          <p>Your Gists</p>
+      </nav>
+    </div>
   ) 
 }
 

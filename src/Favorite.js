@@ -1,20 +1,19 @@
 import React from "react"
-import Toggler from "./Toggler"
+import useToggler from "./useToggler"
 
 function Favorite(props) {
+  const [isFavorited, toggle] = useToggler(false)
   return (
-    <Toggler defaultOnValue={ false } render={({ on, toggle}) => (
-      <div>
-        <h3>Click heart to favorite</h3>
-        <h1>
-          <span 
-              onClick={ toggle }
-          >
-              { on ? "❤️" : "♡" }
-          </span>
-        </h1>
-      </div>
-    )} />
+    <div>
+      <h3>Click heart to favorite</h3>
+      <h1>
+        <span 
+            onClick={ toggle }
+        >
+            { isFavorited ? "❤️" : "♡" }
+        </span>
+      </h1>
+    </div>
   ) 
 }
 
